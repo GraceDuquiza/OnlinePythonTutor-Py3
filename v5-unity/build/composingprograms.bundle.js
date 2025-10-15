@@ -25020,8 +25020,8 @@ var OptFrontend = /** @class */ (function (_super) {
           // call goo.gl URL shortener
           //
           // to test this API from command-line, first disable the IP restriction on API credentials, then run:
-          // curl https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCIjtNqfABbRilub1a3Ta7-qKF3bS9_p1M -H 'Content-Type: application/json' -d '{"longUrl": "http://www.google.com/"}'
-          $.ajax('https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCIjtNqfABbRilub1a3Ta7-qKF3bS9_p1M',
+          // curl "YOUR_API_KEY_HERE"'Content-Type: application/json' -d '{"longUrl": "http://www.google.com/"}'
+          $.ajax('"YOUR_API_KEY_HERE"',
                  {type: 'POST',
                  contentType: 'application/json',
                  data: JSON.stringify({longUrl: urlStr}), // encode as a string first! #tricky
