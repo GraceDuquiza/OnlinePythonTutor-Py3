@@ -31,7 +31,7 @@
 # NB: try to import the minimal amount of stuff in this module to lessen
 # the security attack surface
 
-import imp
+import importlib.util
 import sys
 import bdb # the KEY import here!
 import re
@@ -76,7 +76,7 @@ PYTUTOR_HIDE_STR = '#pythontutor_hide:'
 # - also accepts shell globs, just like PYTUTOR_HIDE_STR
 PYTUTOR_INLINE_TYPE_STR = '#pythontutor_hide_type:'
 
-CLASS_RE = re.compile('class\s+')
+CLASS_RE = re.compile(r'class\s+') # Add r to Match 'class' keyword + whitespace
 
 # copied-pasted from translate() in https://github.com/python/cpython/blob/2.7/Lib/fnmatch.py
 def globToRegex(pat):
@@ -113,7 +113,8 @@ def globToRegex(pat):
                 res = '%s[%s]' % (res, stuff)
         else:
             res = res + re.escape(c)
-    return res + '\Z(?ms)'
+    return res + r'\Z(?ms)' # Add raw r to Match end of string, multiline + dot-all mode
+            
 
 def compileGlobMatch(pattern):
     # very important to use match and *not* search!
@@ -1443,16 +1444,34 @@ class PGLogger(bdb.Bdb):
 
         # if there are custom_modules, 'import' them into user_globals,
         # which emulates "from <module> import *"
+          # If there are any dynamically defined or custom modules to load
         if self.custom_modules:
-            for mn in self.custom_modules:
-                # http://code.activestate.com/recipes/82234-importing-a-dynamically-generated-module/
-                new_m = imp.new_module(mn)
-                exec(self.custom_modules[mn], new_m.__dict__) # exec in custom globals
-                user_globals.update(new_m.__dict__)
+        # Import Python’s modern module creation utilities
+          import importlib.util
+
+          # Loop through each module name stored in the custom_modules dictionary
+          for mn in self.custom_modules:
+              # Create a blank module "specification" (metadata about a module)
+              # Since this module doesn’t come from a file, we pass loader=None
+              spec = importlib.util.spec_from_loader(mn, loader=None)
+
+              # Create a new empty module object from that specification
+              new_m = importlib.util.module_from_spec(spec)
+
+              # Execute the source code (a string) of this custom module
+              # inside the new module's namespace (its variable dictionary)
+              exec(self.custom_modules[mn], new_m.__dict__)
+
+              # Merge all variables and functions defined in the custom module
+              # into the main user_globals dictionary, so they can be accessed
+              # by the rest of the program
+              user_globals.update(new_m.__dict__)
+
+
 
         # important: do this LAST to get precedence over values in custom_modules
         user_globals.update({"__name__"    : "__main__",
-                             "__builtins__" : user_builtins})
+                                "__builtins__" : user_builtins})
 
         try:
           # if allow_all_modules is on, then try to parse script_str into an
