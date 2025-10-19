@@ -45,13 +45,19 @@ Then open in your browser:
 
 - 🧮 **Visualizer:** [http://localhost:8003/](http://localhost:8003/)  
 
+## 🖼️ Example Visualization
+
+<p align="center">
+  <img src="pythontutor.png" alt="Online Python Tutor Screenshot" width="600"/>
+  <br/>
+  <em>Figure 1. Example of a generated Python Tutor visualization.</em>
+</p>
 
 ⚠️ **Note:**  
 The non-Python visualizers (Java, JS, C/C++) rely on external backends and may not run locally without additional configuration.  
 By default, the local setup calls the original server for non-Python backends, so please be mindful of bandwidth usage.
 
 ---
-
 
 ### 🧠 Original Project Info
 
