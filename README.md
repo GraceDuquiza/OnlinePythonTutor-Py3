@@ -1,20 +1,38 @@
-Python Tutor -- http://pythontutor.com/ -- helps people overcome a fundamental barrier to learning programming: understanding what happens as the computer executes each line of a program's source code. Using this tool, you can write Python, Java, JavaScript, TypeScript, Ruby, C, and C++ programs in your Web browser and visualize what the computer is doing step-by-step as it executes those programs.
+# 🧠 Online Python Tutor — Modern Python 3.13-Compatible Fork
 
-This tool was created by [Philip Guo](http://pgbovine.net/) in January 2010. [See project history](history.txt).
+**Online Python Tutor** helps people overcome a fundamental barrier to learning programming —  
+understanding what happens as the computer executes each line of source code.
 
-[List of unsupported features and known bugs](https://github.com/pgbovine/OnlinePythonTutor/blob/master/unsupported-features.md)
+Using this tool, you can write and visualize **Python, Java, JavaScript, TypeScript, Ruby, C, and C++** programs directly in your browser, watching how the program executes step by step.
 
-The latest development version of the code is in [v5-unity](v5-unity/),
-although lots of legacy documentation still resides in [v3](v3/).
+---
 
+### 🧩 About This Fork
 
-### Quick Start
+This is a **modernized fork** of [sineagles/OnlinePythonTutor](https://github.com/sineagles/OnlinePythonTutor),  
+which is based on the **original Online Python Tutor** created by [Philip Guo](http://pgbovine.net/) in 2010.
 
-BY FAR the most preferred way to use Python Tutor is via the official website, since it contains the latest updates: http://pythontutor.com/
+Maintained by **Grace Duquiza (2025)**, this version focuses on modern Python compatibility and security improvements.
 
-You can use [iframe embedding](v3/docs/embedding-HOWTO.md) to easily embed visualizations on your webpage.
+🔧 **Updates include:**
+- Replaced deprecated `imp` with `importlib`
+- Fixed regex escape warnings
+- Removed exposed API keys
+- Added homepage redirect for `/ → /visualize.html`
+- Verified compatibility with **Python 3.6 – 3.13**
 
-If you want to run locally on your own computer, to run Python visualizations try:
+> 💡 *Note:*  
+> The UI may still display “Python 3.6,” but the backend works fully with **Python 3.13**.
+
+---
+
+### 🧩 Development Notes
+This fork modernizes **Python Tutor v5-unity** for current systems, ensuring stable execution under Python 3.6–3.13 and simplifying local setup with the Bottle web server.
+
+### ⚙️ Quick Start (Local Setup)
+
+You can run the visualizer locally using **Python ≥ 3.6** and **Bottle**:
+
 
 ```
 pip install bottle # make sure the bottle webserver (http://bottlepy.org/) is installed
@@ -22,57 +40,63 @@ cd OnlinePythonTutor/v5-unity/
 python bottle_server.py
 ```
 
-You should see the visualizer at: http://localhost:8003/visualize.html
 
-... and the live programming environment at: http://localhost:8003/live.html 
+Then open in your browser:
 
-However, it can be hard to run your own visualizer locally for
-non-Python languages, since there are complex dependencies in v4-cokapi/ that
-I haven't yet cleanly packaged up. By default, the local version you run will
-*call my own server to run the non-Python backends*, so please be mindful of
-your bandwidth usage.
-
-Note: *I can't provide technical support for users who want to install Python Tutor on their own computers/servers ([read details here](https://github.com/pgbovine/OnlinePythonTutor/blob/master/unsupported-features.md)).*
-
-For further directions, see [Overview for Developers](v3/docs/developer-overview.md) or explore the [rest of the docs](v3/docs/).
+- 🧮 **Visualizer:** [http://localhost:8003/](http://localhost:8003/)  
 
 
-### Acknowledgments
+⚠️ **Note:**  
+The non-Python visualizers (Java, JS, C/C++) rely on external backends and may not run locally without additional configuration.  
+By default, the local setup calls the original server for non-Python backends, so please be mindful of bandwidth usage.
 
-For code or security contributions:
-- Irene Chen - experimental holistic visualization mode - v3/js/holistic.js
-- John DeNero - helping with the official Python 3 port, bug fixes galore
-- Mark Liffiton - localStorage bug fix
-- Chris Meyers - custom visualizations such as v3/matrix.py and v3/htmlFrame.py
-- Brad Miller - adding pop-up question dialogs to visualizations, other bug fixes
-- David Pritchard and Will Gwozdz - Java visualizer and other frontend enhancements
-- Peter Robinson - v3/make_visualizations.py
-- Peter Wentworth and his students - working on the original Python 3 fork circa 2010-2011
-- Security tips and vulnerability reports: Aaron E. (https://arinerron.com), Chris Horne (https://github.com/lahwran), Joshua Landau (joshua@landau.ws), David Wyde (https://davidwyde.com/)
+---
 
-For user testing and feedback from instructors' perspectives:
-- Ned Batchelder
-- Jennifer Campbell
-- John Dalbey
-- John DeNero
-- Fredo Durand
-- Michael Ernst
-- David Evans
-- Paul Gries
-- Mark Guzdial
-- Adam Hartz
-- Sean Lip
-- Fernando Perez
-- Tomas Lozano-Perez
-- Bertram Ludaescher
-- Brad Miller
-- Rob Miller
-- Peter Norvig
-- Andrew Petersen
-- David Pritchard
-- Suzanne Rivoire
-- Guido van Rossum
-- Peter Wentworth
-- David Wilkins
 
-... and many, many more!
+### 🧠 Original Project Info
+
+This project is based on [Philip Guo’s Online Python Tutor](https://github.com/pgbovine/OnlinePythonTutor),  
+created in **2010** to help learners visualize code execution.
+
+- [List of unsupported features and known bugs](https://github.com/pgbovine/OnlinePythonTutor/blob/master/unsupported-features.md)  
+- [Developer Overview](v3/docs/developer-overview.md)  
+- [Embedding HOWTO](v3/docs/embedding-HOWTO.md)
+
+> 💡 The original repository is less actively maintained,  
+> but this fork continues development and testing for new Python versions.
+
+---
+
+### ⚙️ Tech Stack
+
+**Languages:** Python, Java, JavaScript, TypeScript, Ruby, C, C++  
+**Frameworks & Tools:** Flask, Bottle, Node.js, D3.js  
+**Tested Compatibility:** Python 3.6 → 3.13  
+**Server:** Local Bottle web server (`bottle_server.py`)
+
+---
+
+
+### 🏆 Acknowledgments
+
+**Original Author:** [Philip Guo](http://pgbovine.net/) — Creator of [Online Python Tutor](https://pythontutor.com/) (2010)  
+**Previous Maintainer:** [sineagles](https://github.com/sineagles/OnlinePythonTutor) — Python 3-compatible fork  
+
+This version is **maintained by Grace Duquiza (2025)** with improvements for  
+Python 3.6–3.13 compatibility, security updates, and modernized local hosting.
+
+Key contributors who helped shape earlier versions include:  
+John DeNero, Irene Chen, Mark Liffiton, Brad Miller, Peter Wentworth, and many others.
+
+> View the full contributor list in the  
+> [sineagles/OnlinePythonTutor repository](https://github.com/sineagles/OnlinePythonTutor).
+
+
+---
+
+### 📜 License
+
+This project retains the original **MIT License**.  
+Copyright © Philip Guo & contributors.  
+Fork maintained by Grace Duquiza (2025).
+
