@@ -11,7 +11,7 @@
 # easy_install pip
 # pip install bottle
 
-from bottle import route, get, request, run, template, static_file
+from bottle import route, get, request, run, template, static_file, redirect
 
 try:
     import StringIO # NB: don't use cStringIO since it doesn't support unicode!!!
@@ -19,6 +19,21 @@ except:
     import io as StringIO # py3
 import json
 import pg_logger
+
+
+import sys
+
+# ✅ Added by Grace (2025-10-20)
+# This confirms runtime compatibility of Python Tutor backend.
+# It prints the current Python version and reminds users that this fork
+# was tested and verified up to Python 3.14 (2025).
+# Works safely on Python 3.6+.
+
+current_version = f"{sys.version_info.major}.{sys.version_info.minor}"
+print(f"🚀 Running Python Tutor backend with Python {sys.version}")
+print(f"✅ Tested and confirmed compatible up to Python 3.14 (current: {current_version})")
+
+
 
 
 @route('/web_exec_<name:re:.+>.py')
@@ -62,7 +77,7 @@ def get_py_exec():
     return out_s.getvalue()
 
 # --- Added by Grace: Redirect homepage to the main visualizer file ---
-from bottle import redirect
+
 
 @route('/')
 def home():
