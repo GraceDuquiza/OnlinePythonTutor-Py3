@@ -77,7 +77,7 @@ created in **2010** to help learners visualize code execution.
 
 **Languages:** Python, Java, JavaScript, TypeScript, Ruby, C, C++  
 **Frameworks & Tools:** Flask, Bottle, Node.js, D3.js  
-**Tested Compatibility:** Python 3.6 → 3.13  
+**Tested Compatibility:** Python 3.6 → 3.14  
 **Server:** Local Bottle web server (`bottle_server.py`)
 
 ---
