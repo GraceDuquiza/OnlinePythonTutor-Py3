@@ -78,7 +78,6 @@ def get_py_exec():
 
 # --- Added by Grace: Redirect homepage to the main visualizer file ---
 
-
 @route('/')
 def home():
     """Redirect root URL to the main visualizer page."""
