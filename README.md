@@ -1,4 +1,4 @@
-# 🧠 Online Python Tutor — Modern Python 3.13-Compatible Fork
+# 🧠 Online Python Tutor — Modern Python 3.14.0-Compatible Fork
 
 **Online Python Tutor** helps people overcome a fundamental barrier to learning programming —  
 understanding what happens as the computer executes each line of source code.
@@ -19,15 +19,15 @@ Maintained by **Grace Duquiza (2025)**, this version focuses on modern Python co
 - Fixed regex escape warnings
 - Removed exposed API keys
 - Added homepage redirect for `/ → /visualize.html`
-- Verified compatibility with **Python 3.6 – 3.13**
+- Verified compatibility with **Python 3.6 – 3.14**
 
 > 💡 *Note:*  
-> The UI may still display “Python 3.6,” but the backend works fully with **Python 3.13**.
+> The UI may still display “Python 3.6,” but the backend works fully with **Python 3.14**.
 
 ---
 
 ### 🧩 Development Notes
-This fork modernizes **Python Tutor v5-unity** for current systems, ensuring stable execution under Python 3.6–3.13 and simplifying local setup with the Bottle web server.
+This fork modernizes **Python Tutor v5-unity** for current systems, ensuring stable execution under Python 3.6–3.14 and simplifying local setup with the Bottle web server.
 
 ### ⚙️ Quick Start (Local Setup)
 
@@ -89,7 +89,7 @@ created in **2010** to help learners visualize code execution.
 **Previous Maintainer:** [sineagles](https://github.com/sineagles/OnlinePythonTutor) — Python 3-compatible fork  
 
 This version is **maintained by Grace Duquiza (2025)** with improvements for  
-Python 3.6–3.13 compatibility, security updates, and modernized local hosting.
+Python 3.6–3.14 compatibility, security updates, and modernized local hosting.
 
 Key contributors who helped shape earlier versions include:  
 John DeNero, Irene Chen, Mark Liffiton, Brad Miller, Peter Wentworth, and many others.
