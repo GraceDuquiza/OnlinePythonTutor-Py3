@@ -1,4 +1,4 @@
-# 🧠 Online Python Tutor — Modern Python 3.14.0-Compatible Fork
+# 🐍 Online Python Tutor — Modern Python 3.14.0-Compatible Fork
 
 **Online Python Tutor** helps people overcome a fundamental barrier to learning programming —  
 understanding what happens as the computer executes each line of source code.
@@ -8,6 +8,10 @@ Using this tool, you can write and visualize **Python, Java, JavaScript, TypeScr
 ---
 
 ### 🧩 About This Fork
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Last Upstream Update](https://img.shields.io/badge/Upstream-2019-lightgrey.svg)](https://github.com/pgbovine/OnlinePythonTutor)
+[![Maintained By](https://img.shields.io/badge/Maintained%20by-Grace%20Duquiza%20Olesen-success.svg)](https://github.com/GraceDuquiza)
 
 This is a **modernized fork** of [sineagles/OnlinePythonTutor](https://github.com/sineagles/OnlinePythonTutor),  
 which is based on the **original Online Python Tutor** created by [Philip Guo](http://pgbovine.net/) in 2010.
